@@ -22,7 +22,7 @@ export function MapsScreen() {
     if (error || !coords) {
         return (
             <Center>
-                <Subtitle>{error ?? 'Endereço não encontrado.'}</Subtitle>
+                <Subtitle>{error ?? 'Address not found.'}</Subtitle>
             </Center>
         );
     }

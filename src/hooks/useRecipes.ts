@@ -19,7 +19,7 @@ export function useRecipes(limit = 20) {
         }
       } catch {
         if (isMounted) {
-          setError('Não foi possível carregar as receitas.');
+          setError('Could not load the recipes.');
         }
       } finally {
         if (isMounted) {

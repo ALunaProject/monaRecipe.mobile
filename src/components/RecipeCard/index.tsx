@@ -23,7 +23,7 @@ export function RecipeCard({
       <S.Card
           onPress={onPress}
           accessibilityRole="button"
-          accessibilityLabel={`Abrir receita ${recipe.name}`}
+          accessibilityLabel={`Open recipe ${recipe.name}`}
       >
         <S.CardImage source={{ uri: recipe.image }} resizeMode="cover" />
         <S.Content>
@@ -42,7 +42,7 @@ export function RecipeCard({
                     onPress={onToggleFavorite}
                     hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
                     accessibilityRole="button"
-                    accessibilityLabel={favorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
+                    accessibilityLabel={favorite ? 'Remove from favorites' : 'Add to favorites'}
                 >
                   <Ionicons
                       name={favorite ? 'heart' : 'heart-outline'}

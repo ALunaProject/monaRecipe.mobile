@@ -6,12 +6,12 @@ export function HomeScreen({ navigation }: RootStackScreenProps<'Home'>) {
   return (
     <Container>
       <Eyebrow>Mona Recipe</Eyebrow>
-      <Title>O que vamos cozinhar hoje?</Title>
+      <Title>What are we cooking today?</Title>
       <Subtitle>
-        Descubra receitas práticas e deliciosas para o seu dia a dia.
+        Discover easy and delicious recipes for your everyday life.
       </Subtitle>
       <Button
-        label="Ver receitas"
+        label="See recipes"
         onPress={() => navigation.navigate('Catalog')}
       />
     </Container>

@@ -23,21 +23,21 @@ type OnboardingSlide = {
 const SLIDES: OnboardingSlide[] = [
 	{
 		id: '1',
-		description: 'Receitas caseiras feitas com carinho, do jeito que a Dona Mona ensinava.',
+		description: 'Homemade recipes made with love, just the way Dona Mona used to teach.',
 	},
 	{
 		id: '2',
-		description: 'Explore as receitas favoritas da Dona Mona',
+		description: "Explore Dona Mona's favorite recipes",
 		emphasis: true,
-		actions: [{id: 'recipes', label: 'Ver receitas', variant: 'primary'}],
+		actions: [{id: 'recipes', label: 'See recipes', variant: 'primary'}],
 	},
 	{
 		id: '3',
-		description: 'Ou visite nossa cozinha e conheça de perto',
+		description: 'Or visit our kitchen and see it up close',
 		emphasis: true,
 		actions: [
-			{id: 'recipes', label: 'Ver receitas', variant: 'primary'},
-			{id: 'bakery', label: 'Visite nossa padaria!', variant: 'secondary'},
+			{id: 'recipes', label: 'See recipes', variant: 'primary'},
+			{id: 'bakery', label: 'Visit our bakery!', variant: 'secondary'},
 		],
 	},
 ];
@@ -89,7 +89,7 @@ export function OnboardingScreen({navigation}: RootStackScreenProps<'Onboarding'
 					)}
 				</S.Header>
 
-				<S.Actions><S.Title>Receitas da Dona Mona</S.Title>
+				<S.Actions><S.Title>{"Dona Mona's Recipes"}</S.Title>
 
 					<FlatList
 						ref={listRef}

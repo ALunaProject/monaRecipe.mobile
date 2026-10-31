@@ -40,7 +40,7 @@ export function RecipeScreen({ route }: RootStackScreenProps<'Recipe'>) {
         }
       } catch {
         if (isMounted) {
-          setError('Não foi possível carregar a receita.');
+          setError('Could not load the recipe.');
         }
       } finally {
         if (isMounted) {
@@ -67,7 +67,7 @@ export function RecipeScreen({ route }: RootStackScreenProps<'Recipe'>) {
   if (error || !recipe) {
     return (
       <StateContainer>
-        <StateText>{error ?? 'Receita não encontrada.'}</StateText>
+        <StateText>{error ?? 'Recipe not found.'}</StateText>
       </StateContainer>
     );
   }
@@ -91,16 +91,16 @@ export function RecipeScreen({ route }: RootStackScreenProps<'Recipe'>) {
               <ChipText>{totalTime} min</ChipText>
             </Chip>
             <Chip>
-              <ChipText>{recipe.servings} porções</ChipText>
+              <ChipText>{recipe.servings} servings</ChipText>
             </Chip>
           </MetaRow>
 
-          <SectionTitle>Ingredientes</SectionTitle>
+          <SectionTitle>Ingredients</SectionTitle>
           {recipe.ingredients.map((ingredient, index) => (
             <Ingredient key={`${index}-${ingredient}`}>• {ingredient}</Ingredient>
           ))}
 
-          <SectionTitle>Modo de preparo</SectionTitle>
+          <SectionTitle>Instructions</SectionTitle>
           {recipe.instructions.map((instruction, index) => (
             <InstructionRow key={`${index}-${instruction}`}>
               <Step>{index + 1}.</Step>

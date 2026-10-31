@@ -41,12 +41,12 @@ export function RootNavigator() {
 			<Stack.Screen
 				name="Catalog"
 				component={CatalogScreen}
-				options={{title: 'Receitas'}}
+				options={{title: 'Recipes'}}
 			/>
 			<Stack.Screen
 				name="Recipe"
 				component={RecipeScreen}
-				options={{title: 'Receita'}}
+				options={{title: 'Recipe'}}
 			/>
 			<Stack.Screen
 				name="Maps"

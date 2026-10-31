@@ -30,9 +30,9 @@ export function CatalogContent({
 
   return (
       <S.Container>
-          <S.Title>Explore nosso cardápio!</S.Title>
+          <S.Title>Explore our menu!</S.Title>
           {recipes.length === 0 ? (
-              <S.StateText>Nenhuma receita encontrada.</S.StateText>
+              <S.StateText>No recipes found.</S.StateText>
           ) : (
               <S.Grid>
                   {recipes.map((recipe) => (

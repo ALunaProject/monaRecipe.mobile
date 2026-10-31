@@ -22,12 +22,12 @@ export function useCatalogHeader({
     navigation.setOptions({
       gestureEnabled: false,
       headerLeft: () => (
-        <S.HeaderButton onPress={onOpenMenu} accessibilityLabel="Abrir menu">
+        <S.HeaderButton onPress={onOpenMenu} accessibilityLabel="Open menu">
           <Ionicons name="menu" size={24} color={Colors.DARKBLUE} />
         </S.HeaderButton>
       ),
       headerRight: () => (
-        <S.HeaderButton onPress={onOpenSearch} accessibilityLabel="Pesquisar">
+        <S.HeaderButton onPress={onOpenSearch} accessibilityLabel="Search">
           <Ionicons name="search" size={22} color={Colors.DARKBLUE} />
         </S.HeaderButton>
       ),

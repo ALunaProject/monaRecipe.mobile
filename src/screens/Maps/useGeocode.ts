@@ -31,7 +31,7 @@ export function useGeocode(address: string): GeocodeState {
 
 				const first = results[0];
 				if (!first) {
-					setState({ coords: null, loading: false, error: 'Endereço não encontrado.' });
+					setState({ coords: null, loading: false, error: 'Address not found.' });
 					return;
 				}
 
@@ -43,7 +43,7 @@ export function useGeocode(address: string): GeocodeState {
 			})
 			.catch(() => {
 				if (cancelled) return;
-				setState({ coords: null, loading: false, error: 'Não foi possível buscar o endereço.' });
+				setState({ coords: null, loading: false, error: 'Could not look up the address.' });
 			});
 
 		return () => {
