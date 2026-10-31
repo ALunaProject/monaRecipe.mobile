@@ -1,73 +1,54 @@
-import { useEffect, useState } from 'react';
-import { ActivityIndicator } from 'react-native';
-
-import { RecipeCard } from '../../components';
+import { SideDrawers } from '../../components/Drawer/SideDrawers';
+import type { PageKey } from '../../components/Drawer/types';
+import { useDrawerControl } from '../../hooks/useDrawerControl';
 import type { RootStackScreenProps } from '../../navigation';
-import { getRecipes, type Recipe } from '../../services';
-import { Colors } from '../../theme';
-import { Container, List, StateContainer, StateText } from './styles';
+import { useCatalogHeader, useFavorites, useRecipes, useRecipeSearch } from "../../hooks";
+import { CatalogContent } from "./components/CatalogContent";
 
 export function CatalogScreen({ navigation }: RootStackScreenProps<'Catalog'>) {
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const menu = useDrawerControl();
+  const search = useDrawerControl();
 
-  useEffect(() => {
-    let isMounted = true;
+  const { recipes, loading, error } = useRecipes();
+  const { query, setQuery, visibleRecipes } = useRecipeSearch(recipes);
+  const { isFavorite, toggleFavorite } = useFavorites();
 
-    async function loadRecipes() {
-      try {
-        const data = await getRecipes({ limit: 20 });
+  useCatalogHeader({
+    navigation,
+    onOpenMenu: menu.onOpen,
+    onOpenSearch: search.onOpen,
+  });
 
-        if (isMounted) {
-          setRecipes(data.recipes);
-        }
-      } catch {
-        if (isMounted) {
-          setError('Não foi possível carregar as receitas.');
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
+  function handleSelectPage(page: PageKey) {
+    menu.onClose();
+
+    if (page === 'Maps') {
+      navigation.navigate('Maps');
     }
-
-    loadRecipes();
-
-    return () => {
-      isMounted = false;
-    };
-  }, []);
-
-  if (loading) {
-    return (
-      <StateContainer>
-        <ActivityIndicator color={Colors.RED} size="large" />
-      </StateContainer>
-    );
   }
 
-  if (error) {
-    return (
-      <StateContainer>
-        <StateText>{error}</StateText>
-      </StateContainer>
-    );
+  function handleSeeCategories() {
+    search.onClose();
+    // TODO: navegar para a tela de categorias quando existir
   }
 
   return (
-    <Container>
-      <List
-        data={recipes}
-        keyExtractor={(recipe) => String(recipe.id)}
-        renderItem={({ item }) => (
-          <RecipeCard
-            recipe={item}
-            onPress={() => navigation.navigate('Recipe', { id: item.id })}
-          />
-        )}
+    <SideDrawers
+      menu={menu}
+      search={search}
+      query={query}
+      onChangeQuery={setQuery}
+      onSelectPage={handleSelectPage}
+      onSeeCategories={handleSeeCategories}
+    >
+      <CatalogContent
+        recipes={visibleRecipes}
+        loading={loading}
+        error={error}
+        isFavorite={isFavorite}
+        onToggleFavorite={toggleFavorite}
+        onPressRecipe={(id) => navigation.navigate('Recipe', { id })}
       />
-    </Container>
+    </SideDrawers>
   );
 }
