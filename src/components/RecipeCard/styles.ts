@@ -2,55 +2,65 @@ import styled from 'styled-components/native';
 
 import { Colors } from '../../theme';
 
-export const Card = styled.Pressable`
-  flex-direction: row;
-  margin-bottom: 16px;
-  border-radius: 16px;
-  border-width: 1px;
-  border-color: ${Colors.BG};
-  background-color: ${Colors.WHITE};
-  overflow: hidden;
-  elevation: 2;
+export const Card = styled.TouchableOpacity`
+    background-color: ${Colors.WHITE};
+    border-radius: 10px;
+    elevation: 3;
+    shadow-color: ${Colors.DARKBLUE};
+    shadow-opacity: 0.12;
+    shadow-radius: 6px;
+    shadow-offset: 0px 2px;
 `;
 
 export const CardImage = styled.Image`
-  width: 104px;
-  height: 104px;
-  background-color: ${Colors.BG};
+    width: 100%;
+    aspect-ratio: 1.05;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 `;
 
 export const Content = styled.View`
-  flex: 1;
-  justify-content: center;
-  padding: 12px 16px;
+    padding: 12px;
 `;
 
 export const Title = styled.Text`
-  color: ${Colors.DARKBLUE};
-  font-size: 17px;
-  font-weight: 700;
+    font-family: 'Montserrat_700Bold';
+    font-size: 16px;
+    color: ${Colors.DARKBLUE};
 `;
 
 export const Meta = styled.Text`
-  margin-top: 4px;
-  color: ${Colors.DARKBLUE};
-  font-size: 13px;
+    font-family: 'Glory_300Light';
+    font-size: 16px;
+    color: ${Colors.DARKBLUE};
+    margin-top: 2px;
 `;
 
 export const Footer = styled.View`
-  flex-direction: row;
-  align-items: center;
-  gap: 12px;
-  margin-top: 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+`;
+
+export const Stats = styled.View`
+    flex-direction: row;
+    align-items: center;
+    flex-shrink: 1;
 `;
 
 export const Rating = styled.Text`
-  color: ${Colors.RED};
-  font-size: 13px;
-  font-weight: 700;
+  font-family: 'Glory_700Bold';
+  font-size: 12px;
+  color: ${Colors.DARKBLUE};
 `;
 
 export const Time = styled.Text`
+  font-family: 'Glory_300Light';
+  font-size: 12px;
   color: ${Colors.DARKBLUE};
-  font-size: 13px;
+`;
+
+export const FavoriteButton = styled.TouchableOpacity`
+  margin-left: 8px;
 `;

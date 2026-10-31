@@ -1,40 +1,58 @@
+import { Ionicons } from '@expo/vector-icons';
+
 import type { Recipe } from '../../services';
-import {
-  Card,
-  CardImage,
-  Content,
-  Footer,
-  Meta,
-  Rating,
-  Time,
-  Title,
-} from './styles';
+import { Colors } from '../../theme';
+import * as S from './styles';
 
 type RecipeCardProps = {
   recipe: Recipe;
   onPress: () => void;
+  favorite?: boolean;
+  onToggleFavorite?: () => void;
 };
 
-export function RecipeCard({ recipe, onPress }: RecipeCardProps) {
+export function RecipeCard({
+                             recipe,
+                             onPress,
+                             favorite = false,
+                             onToggleFavorite,
+                           }: RecipeCardProps) {
   const totalTime = recipe.prepTimeMinutes + recipe.cookTimeMinutes;
 
   return (
-    <Card
-      onPress={onPress}
-      accessibilityRole="button"
-      accessibilityLabel={`Abrir receita ${recipe.name}`}
-    >
-      <CardImage source={{ uri: recipe.image }} resizeMode="cover" />
-      <Content>
-        <Title numberOfLines={1}>{recipe.name}</Title>
-        <Meta>
-          {recipe.cuisine} • {recipe.difficulty}
-        </Meta>
-        <Footer>
-          <Rating>★ {recipe.rating.toFixed(1)}</Rating>
-          <Time>{totalTime} min</Time>
-        </Footer>
-      </Content>
-    </Card>
+      <S.Card
+          onPress={onPress}
+          accessibilityRole="button"
+          accessibilityLabel={`Abrir receita ${recipe.name}`}
+      >
+        <S.CardImage source={{ uri: recipe.image }} resizeMode="cover" />
+        <S.Content>
+          <S.Title numberOfLines={1}>{recipe.name}</S.Title>
+          <S.Meta numberOfLines={1}>
+            {recipe.cuisine} | {recipe.difficulty}
+          </S.Meta>
+          <S.Footer>
+            <S.Stats>
+              <S.Rating>★ {recipe.rating.toFixed(1)}</S.Rating>
+              <S.Time numberOfLines={1}> | {totalTime} min</S.Time>
+            </S.Stats>
+
+            {onToggleFavorite && (
+                <S.FavoriteButton
+                    onPress={onToggleFavorite}
+                    hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+                    accessibilityRole="button"
+                    accessibilityLabel={favorite ? 'Remover dos favoritos' : 'Adicionar aos favoritos'}
+                >
+                  <Ionicons
+                      name={favorite ? 'heart' : 'heart-outline'}
+                      size={26}
+                      color={Colors.RED}
+                  />
+                </S.FavoriteButton>
+            )}
+          </S.Footer>
+        </S.Content>
+      </S.Card>
   );
 }
