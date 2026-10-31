@@ -1,6 +1,7 @@
 export const Colors = {
   BG: '#FFF8F0',
   WHITE: '#FFFFFF',
+  BLACK: '#000000',
   RED: '#C8141F',
   DARKBLUE: '#003049',
   BLUE: '#5B9BB8',

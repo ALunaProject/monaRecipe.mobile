@@ -12,47 +12,47 @@ import type { RootStackParamList } from './types';
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
 export function RootNavigator() {
-  return (
-    <Stack.Navigator
-      initialRouteName="Splash"
-      screenOptions={{
-        headerStyle: { backgroundColor: Colors.BG },
-        headerTintColor: Colors.DARKBLUE,
-        headerTitleStyle: { fontWeight: '700' },
-        headerShadowVisible: false,
-        contentStyle: { backgroundColor: Colors.BG },
-      }}
-    >
-      <Stack.Screen
-        name="Splash"
-        component={SplashScreen}
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="Onboarding"
-        component={OnboardingScreen}
-        options={{ headerShown: false, animation: 'fade' }}
-      />
-      <Stack.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{ headerShown: false, animation: 'fade' }}
-      />
-      <Stack.Screen
-        name="Catalog"
-        component={CatalogScreen}
-        options={{ title: 'Receitas' }}
-      />
-      <Stack.Screen
-        name="Recipe"
-        component={RecipeScreen}
-        options={{ title: 'Receita' }}
-      />
-      <Stack.Screen
-        name="Maps"
-        component={MapsScreen}
-        options={{ title: 'Maps' }}
-      />
-    </Stack.Navigator>
-  );
+	return (
+		<Stack.Navigator
+			initialRouteName="Splash"
+            screenOptions={{
+                headerTitle: '',
+                headerTransparent: true,
+                headerShadowVisible: false,
+                headerTintColor: Colors.DARKBLUE,
+                contentStyle: { backgroundColor: Colors.BG },
+            }}
+		>
+			<Stack.Screen
+				name="Splash"
+				component={SplashScreen}
+				options={{headerShown: false}}
+			/>
+			<Stack.Screen
+				name="Onboarding"
+				component={OnboardingScreen}
+				options={{headerShown: false, animation: 'fade'}}
+			/>
+			<Stack.Screen
+				name="Home"
+				component={HomeScreen}
+				options={{headerShown: false, animation: 'fade'}}
+			/>
+			<Stack.Screen
+				name="Catalog"
+				component={CatalogScreen}
+				options={{title: 'Receitas'}}
+			/>
+			<Stack.Screen
+				name="Recipe"
+				component={RecipeScreen}
+				options={{title: 'Receita'}}
+			/>
+			<Stack.Screen
+				name="Maps"
+				component={MapsScreen}
+				options={{title: 'Maps'}}
+			/>
+		</Stack.Navigator>
+	);
 }
