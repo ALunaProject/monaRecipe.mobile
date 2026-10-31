@@ -1,11 +1,11 @@
-export const colors = {
-  background: '#FFF8F0',
-  surface: '#FFFFFF',
-  primary: '#E4572E',
-  primaryDark: '#C44522',
-  text: '#2B2622',
-  textMuted: '#7C746D',
-  border: '#F1E3D3',
-  white: '#FFFFFF',
-  danger: '#B3261E',
+export const Colors = {
+  BG: '#FFF8F0',
+  WHITE: '#FFFFFF',
+  RED: '#C8141F',
+  DARKBLUE: '#003049',
+  BLUE: '#5B9BB8',
+  CREAM: '#FFF1D6',
+  GRADIENT_STOP_0: '#071F2C00',  // 0% opacidade
+  GRADIENT_STOP_32: '#290A0CB3', // 70% opacidade
+  GRADIENT_STOP_100: '#061923E6',// 90% opacidade
 };

@@ -1,14 +1,14 @@
 import styled from 'styled-components/native';
 
-import { colors } from '../../theme';
+import { Colors } from '../../theme';
 
 export const Card = styled.Pressable`
   flex-direction: row;
   margin-bottom: 16px;
   border-radius: 16px;
   border-width: 1px;
-  border-color: ${colors.border};
-  background-color: ${colors.surface};
+  border-color: ${Colors.BG};
+  background-color: ${Colors.WHITE};
   overflow: hidden;
   elevation: 2;
 `;
@@ -16,7 +16,7 @@ export const Card = styled.Pressable`
 export const CardImage = styled.Image`
   width: 104px;
   height: 104px;
-  background-color: ${colors.border};
+  background-color: ${Colors.BG};
 `;
 
 export const Content = styled.View`
@@ -26,14 +26,14 @@ export const Content = styled.View`
 `;
 
 export const Title = styled.Text`
-  color: ${colors.text};
+  color: ${Colors.DARKBLUE};
   font-size: 17px;
   font-weight: 700;
 `;
 
 export const Meta = styled.Text`
   margin-top: 4px;
-  color: ${colors.textMuted};
+  color: ${Colors.DARKBLUE};
   font-size: 13px;
 `;
 
@@ -45,12 +45,12 @@ export const Footer = styled.View`
 `;
 
 export const Rating = styled.Text`
-  color: ${colors.primary};
+  color: ${Colors.RED};
   font-size: 13px;
   font-weight: 700;
 `;
 
 export const Time = styled.Text`
-  color: ${colors.textMuted};
+  color: ${Colors.DARKBLUE};
   font-size: 13px;
 `;

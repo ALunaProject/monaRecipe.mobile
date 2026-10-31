@@ -1,16 +1,16 @@
 import styled from 'styled-components/native';
 
-import { colors } from '../../theme';
+import { Colors } from '../../theme';
 
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
   padding: 24px;
-  background-color: ${colors.background};
+  background-color: ${Colors.BG};
 `;
 
 export const Eyebrow = styled.Text`
-  color: ${colors.primary};
+  color: ${Colors.RED};
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 1px;
@@ -19,7 +19,7 @@ export const Eyebrow = styled.Text`
 
 export const Title = styled.Text`
   margin-top: 12px;
-  color: ${colors.text};
+  color: ${Colors.DARKBLUE};
   font-size: 32px;
   font-weight: 800;
   line-height: 40px;
@@ -28,7 +28,7 @@ export const Title = styled.Text`
 export const Subtitle = styled.Text`
   margin-top: 12px;
   margin-bottom: 32px;
-  color: ${colors.textMuted};
+  color: ${Colors.DARKBLUE};
   font-size: 16px;
   line-height: 24px;
 `;

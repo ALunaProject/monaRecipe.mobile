@@ -1,6 +1,6 @@
 import { ActivityIndicator, type PressableProps } from 'react-native';
 
-import { colors } from '../../theme';
+import { Colors } from '../../theme';
 import { Container, Label, type ButtonVariant } from './styles';
 
 type ButtonProps = Omit<PressableProps, 'children'> & {
@@ -29,7 +29,7 @@ export function Button({
     >
       {loading ? (
         <ActivityIndicator
-          color={variant === 'primary' ? colors.white : colors.primary}
+          color={variant === 'primary' ? Colors.WHITE : Colors.RED}
         />
       ) : (
         <Label $variant={variant}>{label}</Label>

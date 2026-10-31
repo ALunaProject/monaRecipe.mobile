@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 
 import { RecipeCard } from '../../components';
-import type { RootStackScreenProps } from '../../navigation/types';
+import type { RootStackScreenProps } from '../../navigation';
 import { getRecipes, type Recipe } from '../../services';
-import { colors } from '../../theme';
+import { Colors } from '../../theme';
 import { Container, List, StateContainer, StateText } from './styles';
 
 export function CatalogScreen({ navigation }: RootStackScreenProps<'Catalog'>) {
@@ -43,7 +43,7 @@ export function CatalogScreen({ navigation }: RootStackScreenProps<'Catalog'>) {
   if (loading) {
     return (
       <StateContainer>
-        <ActivityIndicator color={colors.primary} size="large" />
+        <ActivityIndicator color={Colors.RED} size="large" />
       </StateContainer>
     );
   }

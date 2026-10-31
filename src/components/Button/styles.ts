@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { colors } from '../../theme';
+import { Colors } from '../../theme';
 
 export type ButtonVariant = 'primary' | 'outline';
 
@@ -14,15 +14,15 @@ export const Container = styled.Pressable<{
   align-items: center;
   justify-content: center;
   background-color: ${({ $variant }) =>
-    $variant === 'primary' ? colors.primary : 'transparent'};
+    $variant === 'primary' ? Colors.RED : 'transparent'};
   border-width: ${({ $variant }) => ($variant === 'outline' ? 2 : 0)}px;
-  border-color: ${colors.primary};
+  border-color: ${Colors.RED};
   opacity: ${({ $disabled }) => ($disabled ? 0.6 : 1)};
 `;
 
 export const Label = styled.Text<{ $variant: ButtonVariant }>`
   color: ${({ $variant }) =>
-    $variant === 'primary' ? colors.white : colors.primary};
+    $variant === 'primary' ? Colors.WHITE : Colors.RED};
   font-size: 16px;
   font-weight: 700;
 `;

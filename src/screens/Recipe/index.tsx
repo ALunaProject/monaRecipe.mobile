@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
 
-import type { RootStackScreenProps } from '../../navigation/types';
+import type { RootStackScreenProps } from '../../navigation';
 import { getRecipeById, type Recipe } from '../../services';
-import { colors } from '../../theme';
+import { Colors } from '../../theme';
 import {
   Body,
   Chip,
@@ -59,7 +59,7 @@ export function RecipeScreen({ route }: RootStackScreenProps<'Recipe'>) {
   if (loading) {
     return (
       <StateContainer>
-        <ActivityIndicator color={colors.primary} size="large" />
+        <ActivityIndicator color={Colors.RED} size="large" />
       </StateContainer>
     );
   }
