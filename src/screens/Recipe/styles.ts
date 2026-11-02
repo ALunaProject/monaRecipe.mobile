@@ -2,88 +2,138 @@ import styled from 'styled-components/native';
 
 import { Colors } from '../../theme';
 
+const IMAGE_SIZE = 240;
+const IMAGE_OVERFLOW = 70;
+
 export const Container = styled.View`
   flex: 1;
   background-color: ${Colors.CREAM};
 `;
 
 export const Content = styled.ScrollView.attrs({
-  contentContainerStyle: { paddingBottom: 32 },
   showsVerticalScrollIndicator: false,
 })`
   flex: 1;
 `;
 
-export const Hero = styled.Image`
-  width: 100%;
-  height: 240px;
+export const TopSection = styled.View`
+  padding: 0 20px 28px;
   background-color: ${Colors.CREAM};
 `;
 
-export const Body = styled.View`
-  padding: 20px;
+export const Header = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
 `;
 
+export const HeaderButton = styled.TouchableOpacity``;
+
 export const Title = styled.Text`
-  color: ${Colors.DARKBLUE};
+  font-family: Montserrat_700Bold;
   font-size: 26px;
-  font-weight: 800;
   line-height: 34px;
+  color: ${Colors.DARKBLUE};
 `;
 
 export const MetaRow = styled.View`
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 12px;
+  gap: 10px;
+  margin-top: 16px;
 `;
 
 export const Chip = styled.View`
-  padding: 6px 12px;
-  border-radius: 999px;
-  border-width: 1px;
-  border-color: ${Colors.CREAM};
-  background-color: ${Colors.WHITE};
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 4px;
+  background-color: ${Colors.RED};
+  elevation: 4;
+  shadow-color: ${Colors.BLACK};
+  shadow-opacity: 0.25;
+  shadow-radius: 4px;
+  shadow-offset: 0px 4px;
+`;
+
+export const ChipFlag = styled.Text`
+  font-size: 14px;
 `;
 
 export const ChipText = styled.Text`
-  color: ${Colors.DARKBLUE};
-  font-size: 13px;
-  font-weight: 600;
+  font-family: Montserrat_600SemiBold;
+  font-size: 14px;
+  color: ${Colors.WHITE};
+  text-transform: capitalize;
 `;
+
+/* Shared */
 
 export const SectionTitle = styled.Text`
-  margin-top: 28px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
+  font-family: Montserrat_700Bold;
+  font-size: 22px;
   color: ${Colors.DARKBLUE};
-  font-size: 19px;
-  font-weight: 700;
 `;
 
-export const Ingredient = styled.Text`
+export const ListText = styled.Text`
+  flex-shrink: 1;
+  font-family: Glory_300Light;
+  font-size: 14px;
+  line-height: 16px;
   color: ${Colors.DARKBLUE};
-  font-size: 15px;
-  line-height: 26px;
 `;
 
-export const InstructionRow = styled.View`
+/* Ingredients section */
+
+export const IngredientsSection = styled.View`
   flex-direction: row;
-  margin-bottom: 12px;
+  align-items: center;
+  padding: 16px 0 16px 20px;
+  background-color: ${Colors.WHITE};
+  overflow: hidden;
 `;
 
-export const Step = styled.Text`
-  width: 28px;
-  color: ${Colors.RED};
-  font-size: 15px;
-  font-weight: 700;
-`;
-
-export const Instruction = styled.Text`
+export const IngredientsColumn = styled.View`
   flex: 1;
-  color: ${Colors.DARKBLUE};
-  font-size: 15px;
-  line-height: 22px;
+  padding-right: 16px;
 `;
+
+export const RecipeImage = styled.Image`
+  width: ${IMAGE_SIZE}px;
+  height: ${IMAGE_SIZE}px;
+  border-width: 5px;
+  border-color: ${Colors.DARKBLUE};
+  background-color: ${Colors.CREAM};
+  margin-right: -${IMAGE_OVERFLOW}px;
+  margin-bottom: 9px;
+  margin-left: 9px;
+`;
+
+
+export const InstructionsSection = styled.View`
+  padding: 28px 20px 0;
+  background-color: ${Colors.CREAM};
+`;
+
+export const BulletRow = styled.View`
+  flex-direction: row;
+  align-items: flex-start;
+  padding-left: 8px;
+  margin-bottom: 2px;
+`;
+
+export const Bullet = styled.View`
+  width: 4px;
+  height: 4px;
+  margin-top: 6px;
+  margin-right: 10px;
+  border-radius: 2px;
+  background-color: ${Colors.DARKBLUE};
+`;
+
 
 export const StateContainer = styled.View`
   flex: 1;
@@ -94,7 +144,8 @@ export const StateContainer = styled.View`
 `;
 
 export const StateText = styled.Text`
-  color: ${Colors.DARKBLUE};
+  font-family: Glory_400Regular;
   font-size: 15px;
   text-align: center;
+  color: ${Colors.DARKBLUE};
 `;
