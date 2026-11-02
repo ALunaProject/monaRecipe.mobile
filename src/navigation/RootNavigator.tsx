@@ -1,6 +1,7 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { CatalogScreen } from '../screens/Catalog';
+import { FavoritesScreen } from '../screens/Favorites';
 import { HomeScreen } from '../screens/Home';
 import { MapsScreen } from '../screens/Maps';
 import { OnboardingScreen } from '../screens/Onboarding';
@@ -20,7 +21,7 @@ export function RootNavigator() {
                 headerTransparent: true,
                 headerShadowVisible: false,
                 headerTintColor: Colors.DARKBLUE,
-                contentStyle: { backgroundColor: Colors.BG },
+                contentStyle: { backgroundColor: Colors.CREAM },
             }}
 		>
 			<Stack.Screen
@@ -31,17 +32,22 @@ export function RootNavigator() {
 			<Stack.Screen
 				name="Onboarding"
 				component={OnboardingScreen}
-				options={{headerShown: false, animation: 'fade'}}
+				options={{title: 'Favorites'}}
 			/>
 			<Stack.Screen
 				name="Home"
 				component={HomeScreen}
-				options={{headerShown: false, animation: 'fade'}}
+				options={{title: 'Favorites'}}
 			/>
 			<Stack.Screen
 				name="Catalog"
 				component={CatalogScreen}
 				options={{title: 'Recipes'}}
+			/>
+			<Stack.Screen
+				name="Favorites"
+				component={FavoritesScreen}
+				options={{title: 'Favorites'}}
 			/>
 			<Stack.Screen
 				name="Recipe"
