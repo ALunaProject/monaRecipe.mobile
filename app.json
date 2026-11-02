@@ -4,7 +4,7 @@
     "slug": "mona-recipe-mobile",
     "version": "0.4.3",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./src/assets/icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
@@ -12,22 +12,18 @@
     "android": {
       "adaptiveIcon": {
         "backgroundColor": "#C8141F",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "foregroundImage": "./src/assets/android-icon-foreground.png",
+        "backgroundImage": "./src/assets/android-icon-background.png",
+        "monochromeImage": "./src/assets/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./src/assets/favicon.png"
     },
     "plugins": [
       "expo-font",
-      "expo-splash-screen",
-      "react-native-maps",
-      {
-        "androidGoogleMapsApiKey": "CHAVE"
-      }
+      "expo-splash-screen"
     ]
   }
 }
