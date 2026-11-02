@@ -1,5 +1,4 @@
 import { SideDrawers } from '../../components/Drawer/SideDrawers';
-import type { PageKey } from '../../components/Drawer/types';
 import { useDrawerControl } from '../../hooks/useDrawerControl';
 import type { RootStackScreenProps } from '../../navigation';
 import { useCatalogHeader, useFavorites, useRecipes, useRecipeSearch } from "../../hooks";
@@ -19,31 +18,12 @@ export function CatalogScreen({ navigation }: RootStackScreenProps<'Catalog'>) {
     onOpenSearch: search.onOpen,
   });
 
-  function handleSelectPage(page: PageKey) {
-    menu.onClose();
-
-    if (page === 'Maps') {
-      navigation.navigate('Maps');
-    }
-    // TODO: navegar para a tela de favoritos quando existir
-    if (page === 'Favorites') {
-      navigation.navigate('Favorites');
-    }
-  }
-
-  function handleSeeCategories() {
-    search.onClose();
-    // TODO: navegar para a tela de categorias quando existir
-  }
-
   return (
     <SideDrawers
       menu={menu}
       search={search}
       query={query}
       onChangeQuery={setQuery}
-      onSelectPage={handleSelectPage}
-      onSeeCategories={handleSeeCategories}
     >
       <CatalogContent
         recipes={visibleRecipes}

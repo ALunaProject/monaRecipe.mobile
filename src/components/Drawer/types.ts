@@ -24,7 +24,5 @@ export type SideDrawersProps = {
 	search: DrawerControl;
 	query: string;
 	onChangeQuery: (value: string) => void;
-	onSelectPage: (page: PageKey) => void;
-	onSeeCategories: () => void;
 	children: ReactNode;
 };

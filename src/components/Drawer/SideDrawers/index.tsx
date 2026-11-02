@@ -3,18 +3,37 @@ import { Drawer } from 'react-native-drawer-layout';
 import { Colors } from '../../../theme';
 import { PagesDrawer } from '../PageDrawer';
 import { SearchDrawer } from '../SearchDrawer';
-import type { SideDrawersProps } from '../types';
+import type { PageKey, SideDrawersProps } from '../types';
+import { useDrawerControl } from "../../../hooks/useDrawerControl";
 
 const DRAWER_STYLE = { width: '85%', backgroundColor: Colors.DARKBLUE } as const;
 const OVERLAY_STYLE = { backgroundColor: 'rgba(0, 0, 0, 0.4)' } as const;
+
+const menu = useDrawerControl();
+const search = useDrawerControl();
+
+function handleSelectPage(page: PageKey) {
+  menu.onClose();
+
+  if (page === 'Maps') {
+    navigation.navigate('Maps');
+  }
+  if (page === 'Favorites') {
+    navigation.navigate('Favorites');
+  }
+}
+
+function handleSeeCategories() {
+  navigation.navigate('Categories');
+  search.onClose();
+}
+
 
 export function SideDrawers({
   menu,
   search,
   query,
   onChangeQuery,
-  onSelectPage,
-  onSeeCategories,
   children,
 }: SideDrawersProps) {
   return (
@@ -27,7 +46,7 @@ export function SideDrawers({
       drawerStyle={DRAWER_STYLE}
       overlayStyle={OVERLAY_STYLE}
       renderDrawerContent={() => (
-        <PagesDrawer onClose={menu.onClose} onSelect={onSelectPage} />
+        <PagesDrawer onClose={menu.onClose} onSelect={handleSelectPage} />
       )}
     >
       <Drawer
@@ -44,7 +63,7 @@ export function SideDrawers({
             onChangeQuery={onChangeQuery}
             onSubmit={search.onClose}
             onClose={search.onClose}
-            onSeeCategories={onSeeCategories}
+            onSeeCategories={handleSeeCategories}
           />
         )}
       >
