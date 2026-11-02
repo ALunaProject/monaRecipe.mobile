@@ -46,3 +46,7 @@ export async function getRecipeById(id: number): Promise<Recipe> {
 
   return data;
 }
+
+export async function getFavoritesRecipes(ids: number[]): Promise<Recipe[]> {
+  return Promise.all(ids.map((id) => getRecipeById(id)));
+}

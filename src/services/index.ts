@@ -1,5 +1,5 @@
 export { api } from './api';
-export { getRecipeById, getRecipes } from './recipes';
+export { getFavoritesRecipes, getRecipeById, getRecipes } from './recipes';
 export type {
   GetRecipesParams,
   Recipe,
