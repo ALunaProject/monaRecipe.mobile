@@ -36,8 +36,9 @@ export const StateContainer = styled.View`
 `;
 
 export const StateText = styled.Text`
+  font-family: Montserrat_500Medium;
+  font-size: 24px;
   color: ${Colors.DARKBLUE};
-  font-size: 15px;
   text-align: center;
 `;
 

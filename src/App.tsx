@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Montserrat_400Regular, Montserrat_600SemiBold, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
+import { Montserrat_400Regular, Montserrat_500Medium, Montserrat_600SemiBold, Montserrat_700Bold } from '@expo-google-fonts/montserrat';
 import { Glory_300Light, Glory_400Regular, Glory_700Bold } from '@expo-google-fonts/glory';
 import { RootNavigator } from './navigation';
 import { useFonts } from "expo-font";
@@ -11,6 +11,7 @@ import * as SplashScreen from 'expo-splash-screen';
 export default function App() {
     const [fontsLoaded, fontError] = useFonts({
         Montserrat_400Regular,
+        Montserrat_500Medium,
         Montserrat_600SemiBold,
         Montserrat_700Bold,
         Glory_300Light,
