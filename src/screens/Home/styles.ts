@@ -6,7 +6,7 @@ export const Container = styled.View`
   flex: 1;
   justify-content: center;
   padding: 24px;
-  background-color: ${Colors.BG};
+  background-color: ${Colors.CREAM};
 `;
 
 export const Eyebrow = styled.Text`

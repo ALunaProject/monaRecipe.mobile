@@ -4,7 +4,7 @@ import { Colors } from '../../theme';
 
 export const Container = styled.View`
   flex: 1;
-  background-color: ${Colors.BG};
+  background-color: ${Colors.CREAM};
 `;
 
 export const Content = styled.ScrollView.attrs({
@@ -17,7 +17,7 @@ export const Content = styled.ScrollView.attrs({
 export const Hero = styled.Image`
   width: 100%;
   height: 240px;
-  background-color: ${Colors.BG};
+  background-color: ${Colors.CREAM};
 `;
 
 export const Body = styled.View`
@@ -42,7 +42,7 @@ export const Chip = styled.View`
   padding: 6px 12px;
   border-radius: 999px;
   border-width: 1px;
-  border-color: ${Colors.BG};
+  border-color: ${Colors.CREAM};
   background-color: ${Colors.WHITE};
 `;
 
@@ -90,7 +90,7 @@ export const StateContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: ${Colors.BG};
+  background-color: ${Colors.CREAM};
 `;
 
 export const StateText = styled.Text`

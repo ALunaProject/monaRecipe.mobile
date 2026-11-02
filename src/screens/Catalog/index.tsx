@@ -25,6 +25,10 @@ export function CatalogScreen({ navigation }: RootStackScreenProps<'Catalog'>) {
     if (page === 'Maps') {
       navigation.navigate('Maps');
     }
+    // TODO: navegar para a tela de favoritos quando existir
+    if (page === 'Favorites') {
+      navigation.navigate('Favorites');
+    }
   }
 
   function handleSeeCategories() {

@@ -5,6 +5,7 @@ export type RootStackParamList = {
   Onboarding: undefined;
   Home: undefined;
   Catalog: undefined;
+  Favorites: undefined;
   Maps: undefined;
   Recipe: { id: number };
 };

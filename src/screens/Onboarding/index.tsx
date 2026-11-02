@@ -89,8 +89,8 @@ export function OnboardingScreen({navigation}: RootStackScreenProps<'Onboarding'
 					)}
 				</S.Header>
 
-				<S.Actions><S.Title>{"Dona Mona's Recipes"}</S.Title>
-
+				<S.Actions>
+					<S.Title>{"Dona Mona's Recipes"}</S.Title>
 					<FlatList
 						ref={listRef}
 						data={SLIDES}
@@ -98,7 +98,9 @@ export function OnboardingScreen({navigation}: RootStackScreenProps<'Onboarding'
 						horizontal
 						pagingEnabled
 						bounces={false}
-						style={{flexGrow: 0}}
+						style={{flexGrow: 0, experimental_backgroundImage:
+								'linear-gradient(to bottom, rgba(7,31,44,0) 0%, rgba(41,10,12,0.7) 32%, rgba(6,25,35,0.9) 100%)',
+						}}
 						showsHorizontalScrollIndicator={false}
 						onMomentumScrollEnd={handleScrollEnd}
 						renderItem={({item}) => (

@@ -35,7 +35,7 @@ export const StateContainer = styled.View`
   align-items: center;
   justify-content: center;
   padding: 24px;
-  background-color: ${Colors.BG};
+  background-color: ${Colors.CREAM};
 `;
 
 export const StateText = styled.Text`
