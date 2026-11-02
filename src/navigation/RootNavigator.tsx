@@ -8,6 +8,8 @@ import { RecipeScreen } from '../screens/Recipe';
 import { SplashScreen } from '../screens/Splash';
 import { Colors } from '../theme';
 import type { RootStackParamList } from './types';
+import { CategoryRecipesScreen } from "../screens/CategoryRecipes";
+import { CategoriesScreen } from "../screens/Categories";
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -15,13 +17,13 @@ export function RootNavigator() {
 	return (
 		<Stack.Navigator
 			initialRouteName="Splash"
-            screenOptions={{
-                headerTitle: '',
-                headerTransparent: true,
-                headerShadowVisible: false,
-                headerTintColor: Colors.DARKBLUE,
-                contentStyle: { backgroundColor: Colors.CREAM },
-            }}
+			screenOptions={{
+				headerTitle: '',
+				headerTransparent: true,
+				headerShadowVisible: false,
+				headerTintColor: Colors.DARKBLUE,
+				contentStyle: {backgroundColor: Colors.CREAM},
+			}}
 		>
 			<Stack.Screen
 				name="Splash"
@@ -52,6 +54,14 @@ export function RootNavigator() {
 				name="Maps"
 				component={MapsScreen}
 				options={{title: 'Maps'}}
+			/>
+			<Stack.Screen
+				name="Categories"
+				component={CategoriesScreen}
+			/>
+			<Stack.Screen
+				name="CategoryRecipes"
+				component={CategoryRecipesScreen}
 			/>
 		</Stack.Navigator>
 	);

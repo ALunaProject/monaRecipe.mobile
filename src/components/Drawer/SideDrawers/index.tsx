@@ -26,8 +26,7 @@ export function SideDrawers({
   }
 
   function handleSeeCategories() {
-    // TODO: no 'Categories' route exists in RootNavigator yet
-    search.onClose();
+    navigation.navigate('Categories');
   }
 
   return (

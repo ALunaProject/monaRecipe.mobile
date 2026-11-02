@@ -10,4 +10,5 @@ export type CatalogContentProps = {
   isFavorite: (id: Recipe['id']) => boolean;
   onToggleFavorite: (id: Recipe['id']) => void;
   onPressRecipe: (id: Recipe['id']) => void;
+  title?: string;
 };
