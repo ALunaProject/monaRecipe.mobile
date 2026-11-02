@@ -1,43 +1,39 @@
 import { ActivityIndicator } from 'react-native';
 import { Marker } from 'react-native-maps';
 
-import { Center, Container, Map, Subtitle } from './styles';
+import * as S from './styles';
 import { useGeocode } from './useGeocode';
 
-const ADDRESS = 'Avenida Paulista, 1578, São Paulo, SP, Brasil';
-
-const ZOOM_DELTA = 0.01;
-
 export function MapsScreen() {
-    const { coords, loading, error } = useGeocode(ADDRESS);
+    const { coords, loading, error } = useGeocode('Avenida Paulista, 1578, São Paulo, SP, Brasil');
 
     if (loading) {
         return (
-            <Center>
+            <S.Center>
                 <ActivityIndicator size="large" />
-            </Center>
+            </S.Center>
         );
     }
 
     if (error || !coords) {
         return (
-            <Center>
-                <Subtitle>{error ?? 'Address not found.'}</Subtitle>
-            </Center>
+            <S.Center>
+                <S.Subtitle>{error ?? 'Address not found.'}</S.Subtitle>
+            </S.Center>
         );
     }
 
     return (
-        <Container>
-            <Map
+        <S.Container>
+            <S.Map
                 initialRegion={{
                     ...coords,
-                    latitudeDelta: ZOOM_DELTA,
-                    longitudeDelta: ZOOM_DELTA,
+                    latitudeDelta: 0.01,
+                    longitudeDelta: 0.01,
                 }}
             >
-                <Marker coordinate={coords} title="Mona Recipes" description={ADDRESS} />
-            </Map>
-        </Container>
+                <Marker coordinate={coords} title="Mona Recipes" description={'Avenida Paulista, 1578, São Paulo, SP, Brasil'} />
+            </S.Map>
+        </S.Container>
     );
 }

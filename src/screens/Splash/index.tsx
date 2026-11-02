@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 
 import type { RootStackScreenProps } from '../../navigation';
-import { Brand, Container, Loader, Tagline } from './styles';
+import * as S from './styles';
+import { Colors } from "../../theme";
 
 const SPLASH_DURATION_MS = 2000;
 
@@ -15,10 +16,10 @@ export function SplashScreen({ navigation }: RootStackScreenProps<'Splash'>) {
   }, [navigation]);
 
   return (
-    <Container>
-      <Brand>Mona Recipes</Brand>
-      <Tagline>The best homemade recipes for you!</Tagline>
-      <Loader color="#FFFFFF" size="large" />
-    </Container>
+    <S.Container>
+      <S.Brand>Mona Recipes</S.Brand>
+      <S.Tagline>The best homemade recipes for you!</S.Tagline>
+      <S.Loader color={Colors.DARKBLUE} size="large" />
+    </S.Container>
   );
 }

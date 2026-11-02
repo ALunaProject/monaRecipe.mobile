@@ -1,114 +1,66 @@
-import { useEffect, useState } from 'react';
 import { ActivityIndicator } from 'react-native';
-
 import type { RootStackScreenProps } from '../../navigation';
-import { getRecipeById, type Recipe } from '../../services';
 import { Colors } from '../../theme';
-import {
-  Body,
-  Chip,
-  ChipText,
-  Container,
-  Content,
-  Hero,
-  Ingredient,
-  Instruction,
-  InstructionRow,
-  MetaRow,
-  SectionTitle,
-  StateContainer,
-  StateText,
-  Step,
-  Title,
-} from './styles';
+import * as S from './styles';
+import { useRecipe } from "../../hooks/useRecipes";
 
 export function RecipeScreen({ route }: RootStackScreenProps<'Recipe'>) {
   const { id } = route.params;
-  const [recipe, setRecipe] = useState<Recipe | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    let isMounted = true;
-
-    async function loadRecipe() {
-      try {
-        const data = await getRecipeById(id);
-
-        if (isMounted) {
-          setRecipe(data);
-        }
-      } catch {
-        if (isMounted) {
-          setError('Could not load the recipe.');
-        }
-      } finally {
-        if (isMounted) {
-          setLoading(false);
-        }
-      }
-    }
-
-    loadRecipe();
-
-    return () => {
-      isMounted = false;
-    };
-  }, [id]);
+  const { recipe, loading, error } = useRecipe(id);
 
   if (loading) {
     return (
-      <StateContainer>
+      <S.StateContainer>
         <ActivityIndicator color={Colors.RED} size="large" />
-      </StateContainer>
+      </S.StateContainer>
     );
   }
 
   if (error || !recipe) {
     return (
-      <StateContainer>
-        <StateText>{error ?? 'Recipe not found.'}</StateText>
-      </StateContainer>
+      <S.StateContainer>
+        <S.StateText>{error ?? 'Recipe not found.'}</S.StateText>
+      </S.StateContainer>
     );
   }
 
   const totalTime = recipe.prepTimeMinutes + recipe.cookTimeMinutes;
 
   return (
-    <Container>
-      <Content>
-        <Hero source={{ uri: recipe.image }} resizeMode="cover" />
-        <Body>
-          <Title>{recipe.name}</Title>
-          <MetaRow>
-            <Chip>
-              <ChipText>{recipe.cuisine}</ChipText>
-            </Chip>
-            <Chip>
-              <ChipText>{recipe.difficulty}</ChipText>
-            </Chip>
-            <Chip>
-              <ChipText>{totalTime} min</ChipText>
-            </Chip>
-            <Chip>
-              <ChipText>{recipe.servings} servings</ChipText>
-            </Chip>
-          </MetaRow>
+    <S.Container>
+      <S.Content>
+        <S.Hero source={{ uri: recipe.image }} resizeMode="cover" />
+        <S.Body>
+          <S.Title>{recipe.name}</S.Title>
+          <S.MetaRow>
+            <S.Chip>
+              <S.ChipText>{recipe.cuisine}</S.ChipText>
+            </S.Chip>
+            <S.Chip>
+              <S.ChipText>{recipe.difficulty}</S.ChipText>
+            </S.Chip>
+            <S.Chip>
+              <S.ChipText>{totalTime} min</S.ChipText>
+            </S.Chip>
+            <S.Chip>
+              <S.ChipText>{recipe.servings} servings</S.ChipText>
+            </S.Chip>
+          </S.MetaRow>
 
-          <SectionTitle>Ingredients</SectionTitle>
+          <S.SectionTitle>Ingredients</S.SectionTitle>
           {recipe.ingredients.map((ingredient, index) => (
-            <Ingredient key={`${index}-${ingredient}`}>• {ingredient}</Ingredient>
+            <S.Ingredient key={`${index}-${ingredient}`}>• {ingredient}</S.Ingredient>
           ))}
 
-          <SectionTitle>Instructions</SectionTitle>
+          <S.SectionTitle>Instructions</S.SectionTitle>
           {recipe.instructions.map((instruction, index) => (
-            <InstructionRow key={`${index}-${instruction}`}>
-              <Step>{index + 1}.</Step>
-              <Instruction>{instruction}</Instruction>
-            </InstructionRow>
+            <S.InstructionRow key={`${index}-${instruction}`}>
+              <S.Step>{index + 1}.</S.Step>
+              <S.Instruction>{instruction}</S.Instruction>
+            </S.InstructionRow>
           ))}
-        </Body>
-      </Content>
-    </Container>
+        </S.Body>
+      </S.Content>
+    </S.Container>
   );
 }

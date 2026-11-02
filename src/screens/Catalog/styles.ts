@@ -1,7 +1,4 @@
-import { FlatList } from 'react-native';
 import styled from 'styled-components/native';
-
-import type { Recipe } from '../../services';
 import { Colors } from '../../theme';
 
 export const Container = styled.ScrollView.attrs({

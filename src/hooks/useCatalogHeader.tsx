@@ -11,8 +11,6 @@ type UseCatalogHeaderParams = {
   onOpenSearch: () => void;
 };
 
-// TODO: depois tirar os botões do header pra arrumar o design
-// (basta remover a chamada deste hook na tela)
 export function useCatalogHeader({
   navigation,
   onOpenMenu,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getRecipes, Recipe } from "../services";
+import { getRecipeById, getRecipes, Recipe } from "../services";
 
 
 export function useRecipes(limit = 20) {
@@ -36,4 +36,40 @@ export function useRecipes(limit = 20) {
   }, [limit]);
 
   return { recipes, loading, error };
+}
+
+export function useRecipe(id: number) {
+  const [recipe, setRecipe] = useState<Recipe | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let isMounted = true;
+
+    async function loadRecipe() {
+      try {
+        const data = await getRecipeById(id);
+
+        if (isMounted) {
+          setRecipe(data);
+        }
+      } catch {
+        if (isMounted) {
+          setError('Could not load the recipe.');
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadRecipe();
+
+    return () => {
+      isMounted = false;
+    };
+  }, [id]);
+
+  return { recipe, loading, error };
 }

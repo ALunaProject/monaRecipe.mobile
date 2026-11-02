@@ -20,7 +20,7 @@ export function useGeocode(address: string): GeocodeState {
 	});
 
 	useEffect(() => {
-		// Evita atualizar o state se o componente desmontar ou o endereço mudar
+
 		let cancelled = false;
 
 		setState({ coords: null, loading: true, error: null });

@@ -2,7 +2,6 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import { CatalogScreen } from '../screens/Catalog';
 import { FavoritesScreen } from '../screens/Favorites';
-import { HomeScreen } from '../screens/Home';
 import { MapsScreen } from '../screens/Maps';
 import { OnboardingScreen } from '../screens/Onboarding';
 import { RecipeScreen } from '../screens/Recipe';
@@ -32,11 +31,6 @@ export function RootNavigator() {
 			<Stack.Screen
 				name="Onboarding"
 				component={OnboardingScreen}
-				options={{title: 'Favorites'}}
-			/>
-			<Stack.Screen
-				name="Home"
-				component={HomeScreen}
 				options={{title: 'Favorites'}}
 			/>
 			<Stack.Screen

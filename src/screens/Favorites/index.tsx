@@ -1,9 +1,10 @@
 import { ActivityIndicator } from 'react-native';
-import * as S from "./styles";
+import * as S from "../Catalog/styles";
 import type { RootStackScreenProps } from "../../navigation";
-import { useFavoriteRecipes, useFavorites } from "../../hooks";
 import { RecipeCard } from "../../components";
 import { Colors } from "../../theme";
+import { useFavorites } from "../../hooks";
+import { useFavoriteRecipes } from "../../hooks/useFavorites";
 
 export function FavoritesScreen({ navigation }: RootStackScreenProps<'Favorites'>) {
 	const { favoriteIds, isFavorite, toggleFavorite } = useFavorites();

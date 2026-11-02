@@ -1,25 +1,16 @@
 import { useRef, useState } from 'react';
-import {
-	FlatList,
-	useWindowDimensions,
-	type NativeScrollEvent,
-	type NativeSyntheticEvent,
-} from 'react-native';
-
+import { FlatList, useWindowDimensions, type NativeScrollEvent, type NativeSyntheticEvent } from 'react-native';
 import type { RootStackScreenProps } from '../../navigation';
 import * as S from './styles';
 
 const BACKGROUND = require('../../assets/onboarding-bg.jpg');
-
 type ActionId = 'recipes' | 'bakery';
-
 type OnboardingSlide = {
 	id: string;
 	description: string;
 	emphasis?: boolean;
 	actions?: {id: ActionId; label: string; variant: 'primary' | 'secondary'}[];
 };
-
 const SLIDES: OnboardingSlide[] = [
 	{
 		id: '1',
@@ -55,27 +46,18 @@ export function OnboardingScreen({navigation}: RootStackScreenProps<'Onboarding'
 		setCurrentIndex(index);
 	}
 
-	function goToRecipes() {
-		// Troque 'Home' pela rota do catálogo de receitas
-		navigation.replace('Home');
-	}
-
 	function handleAction(action: ActionId) {
 		if (action === 'recipes') {
-			goToRecipes();
+			navigation.replace('Catalog');
 			return;
 		}
 		navigation.replace('Maps');
 	}
 
-	function handleScrollEnd(event: NativeSyntheticEvent<NativeScrollEvent>) {
-		setCurrentIndex(Math.round(event.nativeEvent.contentOffset.x / width));
-	}
 
 	return (
 		<S.Background source={BACKGROUND} resizeMode="cover">
 			<S.Overlay/>
-
 			<S.Content>
 				<S.Header>
 					<S.Counter>
@@ -83,7 +65,7 @@ export function OnboardingScreen({navigation}: RootStackScreenProps<'Onboarding'
 					</S.Counter>
 
 					{!isLast && (
-						<S.SkipButton onPress={goToRecipes} accessibilityRole="button">
+						<S.SkipButton onPress={() => navigation.replace('Catalog')} accessibilityRole="button">
 							<S.SkipText>Skip</S.SkipText>
 						</S.SkipButton>
 					)}
@@ -98,11 +80,9 @@ export function OnboardingScreen({navigation}: RootStackScreenProps<'Onboarding'
 						horizontal
 						pagingEnabled
 						bounces={false}
-						style={{flexGrow: 0, experimental_backgroundImage:
-								'linear-gradient(to bottom, rgba(7,31,44,0) 0%, rgba(41,10,12,0.7) 32%, rgba(6,25,35,0.9) 100%)',
-						}}
+						style={{flexGrow: 0}}
 						showsHorizontalScrollIndicator={false}
-						onMomentumScrollEnd={handleScrollEnd}
+						onMomentumScrollEnd={(event) => setCurrentIndex(Math.round(event.nativeEvent.contentOffset.x / width))}
 						renderItem={({item}) => (
 							<S.Slide width={width}>
 								<S.Description emphasis={item.emphasis}>{item.description}</S.Description>
