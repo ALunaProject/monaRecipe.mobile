@@ -61,8 +61,6 @@ npm run ios       # Abre no simulador iOS
 npm run web       # Abre no navegador
 ```
 
-> ⚠️ Para o mapa funcionar no Android, substitua o valor `CHAVE` em `app.json` pela sua chave da **Google Maps API**.
-
 ### Lint e tipagem:
 ```
 npm run lint
