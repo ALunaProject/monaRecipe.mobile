@@ -4,7 +4,7 @@ export type PageKey = 'Catalog' | 'Maps' | 'Favorites';
 
 export const PAGES: { key: PageKey; label: string }[] = [
 	{ key: 'Catalog', label: 'Recipe Catalog' },
-	{ key: 'Maps', label: 'Bakery Map' },
+	{ key: 'Maps', label: `Mona's Bakery` },
 	{ key: 'Favorites', label: 'Favorites' },
 ];
 

@@ -1,39 +1,29 @@
-import { ActivityIndicator } from 'react-native';
 import { Marker } from 'react-native-maps';
 
 import * as S from './styles';
-import { useGeocode } from './useGeocode';
+
+const LOCATION = {
+	latitude: -29.7015,
+	longitude: -51.1380,
+};
 
 export function MapsScreen() {
-    const { coords, loading, error } = useGeocode('Avenida Paulista, 1578, São Paulo, SP, Brasil');
 
-    if (loading) {
-        return (
-            <S.Center>
-                <ActivityIndicator size="large" />
-            </S.Center>
-        );
-    }
-
-    if (error || !coords) {
-        return (
-            <S.Center>
-                <S.Subtitle>{error ?? 'Address not found.'}</S.Subtitle>
-            </S.Center>
-        );
-    }
-
-    return (
-        <S.Container>
-            <S.Map
-                initialRegion={{
-                    ...coords,
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01,
-                }}
-            >
-                <Marker coordinate={coords} title="Mona Recipes" description={'Avenida Paulista, 1578, São Paulo, SP, Brasil'} />
-            </S.Map>
-        </S.Container>
-    );
+	return (
+		<S.Container>
+			<S.Map
+				initialRegion={{
+					...LOCATION,
+					latitudeDelta: 0.001,
+					longitudeDelta: 0.001,
+				}}
+			>
+				<Marker
+					coordinate={LOCATION}
+					title="Padaria da Mona"
+					description="R. Cel. Jacob Kroeff Filho, 2155 - Rondônia, Novo Hamburgo - RS, 93415-580"
+				/>
+			</S.Map>
+		</S.Container>
+	);
 }

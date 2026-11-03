@@ -1,23 +1,27 @@
 import MapView from 'react-native-maps';
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+import { Colors } from '../../theme';
+
+export const Container = styled.SafeAreaView.attrs({
+})`
     flex: 1;
+    background-color: ${Colors.CREAM};
+	padding: 24px;
 `;
 
 export const Map = styled(MapView)`
     flex: 1;
+	border: 2px solid ${Colors.DARKBLUE};
 `;
 
-export const Center = styled.View`
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
-`;
-
-export const Subtitle = styled.Text`
-  font-size: 16px;
-  color: #6b7280;
-  text-align: center;
+export const HeaderButton = styled.TouchableOpacity`
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 1;
+    elevation: 2;
+    padding: 6px;
+    background-color: ${Colors.CREAM};
+    border-radius: 20px;
 `;
